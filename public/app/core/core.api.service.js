@@ -2,6 +2,8 @@
 	'use strict';
 
 	function apiService ( $http ) {
+		var baseURL   = 'http://dev.tranzwatch.com/';
+		var authToken = ''
 
 		function authenticate ( data ) {
 			if ( !data ) {
@@ -12,12 +14,22 @@
 				};
 			}
 
-			return $http.post( 'http://dev.tranzwatch.com/auth', data );
+			return $http.post( baseURL + 'auth', data );
+		}
+
+		function getUsers ( data ) {
+			return $http.get( baseURL + 'api/v1/user?page[limit]=' + data.limitVal + '&page[offset]=' + data.offsetVal + '&token=' + authToken );
+		}
+
+		function getUserDetails ( userId ) {
+			return $http.get( baseURL + 'api/v1/user/' + userId + '?token=' + authToken );
 		}
 
 		var service = {
 			'tranzGoApiCall' : {
-				'authenticate' : authenticate
+				'authenticate'   : authenticate,
+				'getUsers'       : getUsers,
+				'getUserDetails' : getUserDetails
 			}
 		};
 

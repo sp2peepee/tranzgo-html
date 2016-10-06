@@ -1,3 +1,60 @@
-<ul ng-repeat="user in vm.userList">
-    <li ng-bind="user.first_name"></li>
-</ul>
+<div class="users-page-wrapper container">
+	<div class="users-page-header">
+		<span>Users Page</span>
+	</div>
+	<div class="user-list-container" ng-if="!vm.isDetailMode">
+		<div class="user-list-content">
+			<div class="user-list-header">
+				<span>User List</span>
+			</div>
+			<div class="user-list-body row">
+				<div class="user-list-table-heads">
+					<span class="col-xs-3">First Name</span>
+					<span class="col-xs-3">Last Name</span>
+					<span class="col-xs-3">Mobile No.</span>
+					<span class="col-xs-2">Plate No.</span>
+					<span class="col-xs-1">Details</span>
+					<span class="clearfix"></span>
+				</div>
+				<div class="user-list-details">
+					<div class="user-entry" ng-repeat="user in vm.userList">
+						<span class="col-xs-3" ng-bind="user.first_name"></span>
+						<span class="col-xs-3" ng-bind="user.last_name"></span>
+						<span class="col-xs-3" ng-bind="user.mobile_num"></span>
+						<span class="col-xs-2" ng-bind="user.plate_no"></span>
+						<span class="col-xs-1 view-link" ng-click="vm.viewUserDetails( user.id )">View</span>
+						<span class="clearfix"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="user-details-container" ng-if="vm.isDetailMode">
+		<div class="user-details-content">
+			<div class="user-details-header">
+				<span class="u-header">{{ vm.currUserName }}'s Details</span>
+				<span class="u-back-btn" ng-click="vm.viewUserList()">(Back)</span>
+			</div>
+			<div class="user-details">
+				<span class="col-xs-3 user-detail-key">First Name</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'first_name' ] }}</span>
+				<span class="col-xs-3 user-detail-key">Last Name</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'last_name' ] }}</span>
+				<span class="col-xs-3 user-detail-key">Nickname</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'nickname' ] }}</span>
+				<span class="col-xs-3 user-detail-key">Username</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'username' ] }}</span>
+				<span class="col-xs-3 user-detail-key">Designation</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'designation' ] }}</span>
+				<span class="col-xs-3 user-detail-key">Company Name</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'company_name' ] }}</span>
+				<span class="col-xs-3 user-detail-key">Mobile No.</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'mobile_num' ] }}</span>
+				<span class="col-xs-3 user-detail-key">Plate No.</span>
+				<span class="col-xs-3">{{ vm.currUser[ 'plate_no' ] }}</span>
+				<span class="clearfix"></span>
+			</div>
+		</div>
+	</div>
+</div>
