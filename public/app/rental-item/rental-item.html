@@ -1,3 +1,25 @@
 <div class="rental-item-page-wrapper container">
-	<h1>{{ vm.testText }}</h1>
+	<div class="rental-item-page-header page-main-header">
+		<span>Rental Item</span>
+	</div>
+
+	<div class="rental-item-list-container" ng-if="!vm.isDetailMode">
+		<div class="rental-item-list-content">
+			<div class="rental-item-list-header">
+				<span>Rental Item List</span>
+			</div>
+			<div class="rental-item-list-body row">
+				<div class="rental-item-list-table-heads">
+					<span class="col-xs-3">(Test Table Header 1)</span>
+					<span class="col-xs-3">(Test Table Header 2)</span>
+					<span class="col-xs-3">(Test Table Header 3)</span>
+					<span class="col-xs-2">(Test Table Header 4)</span>
+					<span class="col-xs-1">Details</span>
+					<span class="clearfix"></span>
+				</div>
+				<div class="rental-item-list-details">
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
