@@ -4,7 +4,8 @@
     angular.module( 'app', [
         'app.core',
         'app.dashboard',
-        'app.users',
         'app.home',
+        'app.users',
+        'app.rental'
     ])
 })();
