@@ -2,7 +2,6 @@
 	<div class="rental-item-page-header page-main-header">
 		<span>Rental Item</span>
 	</div>
-
 	<div class="rental-item-list-container" ng-if="!vm.isDetailMode">
 		<div class="rental-item-list-content">
 			<div class="rental-item-list-header">
@@ -10,14 +9,22 @@
 			</div>
 			<div class="rental-item-list-body row">
 				<div class="rental-item-list-table-heads">
-					<span class="col-xs-3">(Test Table Header 1)</span>
-					<span class="col-xs-3">(Test Table Header 2)</span>
-					<span class="col-xs-3">(Test Table Header 3)</span>
-					<span class="col-xs-2">(Test Table Header 4)</span>
+					<span class="col-xs-3">Plate No.</span>
+					<span class="col-xs-3">Model</span>
+					<span class="col-xs-3">Available?</span>
+					<span class="col-xs-2">Status</span>
 					<span class="col-xs-1">Details</span>
 					<span class="clearfix"></span>
 				</div>
 				<div class="rental-item-list-details">
+					<div class="item-entry" ng-repeat="item in vm.itemList">
+						<span class="col-xs-3" ng-bind="item.plate_no"></span>
+						<span class="col-xs-3">{{ item.make }} {{ item.model }} {{ item.year_model }}</span>
+						<span class="col-xs-3" ng-bind="vm.convertStatusCodes( item.is_available )"></span>
+						<span class="col-xs-2" ng-bind="vm.convertStatusCodes( item.status )"></span>
+						<span class="col-xs-1 view-link" ng-click="vm.viewItemDetails( item.id )">View</span>
+						<span class="clearfix"></span>
+					</div>
 				</div>
 			</div>
 		</div>

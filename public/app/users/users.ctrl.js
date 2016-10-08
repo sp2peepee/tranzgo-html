@@ -1,12 +1,12 @@
 ( function () {
-    function UsersCtrl ( apiService, _ ) {
-        var self = this;
+	function UsersCtrl ( apiService, _ ) {
+		var self = this;
 
-        self.isDetailMode = false;
-        self.currUser     = {};
-        self.currUserName = '';
+		self.isDetailMode = false;
+		self.currUser     = {};
+		self.currUserName = '';
 
-        self.userList = [
+		self.userList = [
 			{
 				'id'               : 3,
 				'company_id'       : 1,
@@ -45,107 +45,107 @@
 				'plate_no'         : null,
 				'system_code'      : 'OAMUQUNA'
 			}
-        ];
+		];
 
-        // Test function to set the view to details
-        function viewUserDetails ( userId ) {
-        	self.isDetailMode = true;
-        	self.currUser     = _.find( self.userList, { 'id' : userId } );
-        	self.currUserName = self.currUser.first_name + ' ' + self.currUser.last_name;
+		// Test function to set the view to details
+		function viewUserDetails ( userId ) {
+			self.isDetailMode = true;
+			self.currUser     = _.find( self.userList, { 'id' : userId } );
+			self.currUserName = self.currUser.first_name + ' ' + self.currUser.last_name;
 
-        	console.log( 'VIEW DETAILS FOR USER: ' + userId );
-        	console.log( self.currUserName );
-        }
+			console.log( 'VIEW DETAILS FOR USER: ' + userId );
+			console.log( self.currUserName );
+		}
 
-        // Test function to set the view to list
-        function viewUserList () {
-        	self.isDetailMode = false;
-        	self.currUser     = {};
-        	self.currUserName = '';
+		// Test function to set the view to list
+		function viewUserList () {
+			self.isDetailMode = false;
+			self.currUser     = {};
+			self.currUserName = '';
 
-        	console.log( 'VIEW LIST OF USERS' );
-        }
+			console.log( 'VIEW LIST OF USERS' );
+		}
 
-        // Sets the view between list or detail view
-        function toggleUserView ( userId ) {
-        	if ( userId ) {
-        		console.log( 'VIEW DETAILS FOR USER: ' + userId );
-        		self.isDetailMode = true;
+		// Sets the view between list or detail view
+		function toggleUserView ( userId ) {
+			if ( userId ) {
+				console.log( 'VIEW DETAILS FOR USER: ' + userId );
+				self.isDetailMode = true;
 
-        		getUserDetails( userId );
+				getUserDetails( userId );
 
-        		return;
-        	}
+				return;
+			}
 
-        	self.isDetailMode = false;
-        	self.currUser     = {};
-        	self.currUserName = '';
+			self.isDetailMode = false;
+			self.currUser     = {};
+			self.currUserName = '';
 
-        	console.log( 'VIEW LIST OF USERS' );
-        }
+			console.log( 'VIEW LIST OF USERS' );
+		}
 
-        // Handles the getUserDetails response
-        function getUserDetailsHandler ( result ) {
-        	if ( result ) {
-        		self.currUser     = result.data;
-        		self.currUserName = result.data.first_name + ' ' + result.data.last_name;
+		// Handles the getUserDetails response
+		function getUserDetailsHandler ( result ) {
+			if ( result ) {
+				self.currUser     = result.data;
+				self.currUserName = result.data.first_name + ' ' + result.data.last_name;
 
-        		console.log( self.currUserName );
-        	}
-        }
+				console.log( self.currUserName );
+			}
+		}
 
-        // Fetches details for a specific user
-        function getUserDetails ( userId ) {
-        	apiService.tranzGoApiCall.getUserDetails( userId ).then( getUserDetailsHandler );
-        }
+		// Fetches details for a specific user
+		function getUserDetails ( userId ) {
+			apiService.tranzGoApiCall.getUserDetails( userId ).then( getUserDetailsHandler );
+		}
 
-        // Handles the getUsers response
-        function getUsersHandler ( result ) {
-        	if ( result ) {
-        		self.userList = result.data;
-        	}
-        }
+		// Handles the getUsers response
+		function getUsersHandler ( result ) {
+			if ( result ) {
+				self.userList = result.data;
+			}
+		}
 
-        // Fetches user list
-        function getUsers () {
-        	var data = {
-        		'limitVal'  : '10',
-        		'offsetVal' : '0'
-        	};
+		// Fetches user list
+		function getUsers () {
+			var data = {
+				'limitVal'  : '10',
+				'offsetVal' : '0'
+			};
 
-        	apiService.tranzGoApiCall.getUsers( data ).then( getUserListHandler );
-        }
+			apiService.tranzGoApiCall.getUsers( data ).then( getUserListHandler );
+		}
 
-        // Test function to call authentication
-        function getUserList () {
-        	var data = {
-        		'username' : 'stephenpadilla@gmail.com',
-        		'password' : 'wallpwd'
-        	};
+		// Test function to call authentication
+		function getUserList () {
+			var data = {
+				'username' : 'stephenpadilla@gmail.com',
+				'password' : 'wallpwd'
+			};
 
-        	apiService.tranzGoApiCall.authenticate( data ).then( function ( res ) {
-        		console.log( 'AUTHENTICATES!' );
-        		console.log( res );
-        	} );
-        }
+			apiService.tranzGoApiCall.authenticate( data ).then( function ( res ) {
+				console.log( 'AUTHENTICATES!' );
+				console.log( res );
+			} );
+		}
 
-        // Activates the Users controller
-        function activate () {
-        	console.log( 'Users controller activated' );
+		// Activates the Users controller
+		function activate () {
+			console.log( 'Users controller activated' );
 
-        	// Should call getUsers function here
-        }
+			// Should call getUsers function here
+		}
 
-        activate();
+		activate();
 
-        self.viewUserDetails = viewUserDetails;
-        self.viewUserList    = viewUserList;
-    }
+		self.viewUserDetails = viewUserDetails;
+		self.viewUserList    = viewUserList;
+	}
 
 
-    angular
-        .module('app.users')
-        .controller('UsersCtrl', UsersCtrl);
+	angular
+		.module('app.users')
+		.controller('UsersCtrl', UsersCtrl);
 
-    UsersCtrl.$inject = [ 'apiService', '_' ];
+	UsersCtrl.$inject = [ 'apiService', '_' ];
 })();

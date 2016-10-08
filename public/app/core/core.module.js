@@ -1,10 +1,10 @@
 (function () {
-    'use strict';
+	'use strict';
 
-    angular
-    	.module('app.core', [
-        // angular modules
-        'ngRoute'
-    	] )
-    	.constant( '_', window._ );
+	angular
+		.module('app.core', [
+		// angular modules
+		'ngRoute'
+		] )
+		.constant( '_', window._ );
 })();
