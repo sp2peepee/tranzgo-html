@@ -7,6 +7,7 @@
 		'app.home',
 		'app.users',
 		'app.usersDetail',
-		'app.rental'
+		'app.rental',
+		'app.rentalDetail'
 	])
 })();
