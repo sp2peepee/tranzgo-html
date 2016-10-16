@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en" data-ng-app="app">
 <head>
     <meta charset="UTF-8">
     <title>Tranz|Go Web</title>
@@ -8,7 +8,8 @@
 </head>
 <body style="background-color:#f4f5f5">
     <div id="main">
-        <div ng-view></div>
+        <div data-ng-include="'app/nav/nav.html'"></div>
+        <div data-ng-view></div>
     </div>
 
     <!-- bower components -->

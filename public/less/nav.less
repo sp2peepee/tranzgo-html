@@ -1,0 +1,29 @@
+.tg-nav-bar {
+	background-color : @tranz-global-blue;
+	height           : 50px;
+
+	.nav-bar-contents {
+		height : inherit;
+
+		.nav-bar-logo {
+			height : inherit;
+			width  : 50px;
+
+			img {
+				width            : inherit;
+				height           : 50px;
+				object-fit       : cover;
+				padding          : 5px 5px;
+				background-color : @global-white;
+			}
+		}
+		.nav-bar-menu-item {
+			width        : 100px;
+			height       : 50px;
+			padding      : 15px 0;
+			text-align   : center;
+			border-right : 1px solid @global-white;
+			color        : @global-white;
+		}
+	}
+}
