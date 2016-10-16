@@ -6,6 +6,7 @@
 		'app.dashboard',
 		'app.home',
 		'app.users',
+		'app.usersDetail',
 		'app.rental'
 	])
 })();

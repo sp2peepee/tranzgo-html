@@ -1,6 +1,10 @@
 ( function () {
-	function UsersCtrl ( apiService ) {
+	function UsersDetailCtrl ( $routeParams, apiService, _  ) {
 		var self = this;
+
+		self.currUser     = {};
+		self.currUserName = '';
+		self.userExists   = false;
 
 		self.userList = [
 			{
@@ -43,21 +47,35 @@
 			}
 		];
 
-		// Handles the getUsers response
-		function getUsersHandler ( result ) {
+		// Test function to set the view to details
+		function viewUserDetails ( userId ) {
+			self.isDetailMode = true;
+
+			self.currUser = _.find( self.userList, { 'id' : parseInt( userId ) } );
+
+			if ( self.currUser ) {
+				self.userExists   = true;
+				self.currUserName = self.currUser.first_name + ' ' + self.currUser.last_name;
+			}
+
+			console.log( 'VIEW DETAILS FOR USER: ' + userId );
+			console.log( self );
+			console.log( self.currUserName );
+		}
+
+		// Handles the getUserDetails response
+		function getUserDetailsHandler ( result ) {
 			if ( result ) {
-				self.userList = result.data;
+				self.currUser     = result.data;
+				self.currUserName = result.data.first_name + ' ' + result.data.last_name;
+
+				console.log( self.currUserName );
 			}
 		}
 
-		// Fetches user list
-		function getUsers () {
-			var data = {
-				'limitVal'  : '10',
-				'offsetVal' : '0'
-			};
-
-			apiService.tranzGoApiCall.users.getUsers( data ).then( getUsersHandler );
+		// Fetches details for a specific user
+		function getUserDetails ( userId ) {
+			apiService.tranzGoApiCall.users.getUserDetails( userId ).then( getUserDetailsHandler );
 		}
 
 		// Test function to call authentication
@@ -75,7 +93,13 @@
 
 		// Activates the Users controller
 		function activate () {
-			console.log( 'Users controller activated' );
+			console.log( 'Users-Detail controller activated' );
+			console.log( $routeParams );
+
+			if ( $routeParams.userId ) {
+				console.log( 'IS DETAILS!' );
+				viewUserDetails( $routeParams.userId );
+			}
 			// Should call getUsers function here
 		}
 
@@ -84,8 +108,8 @@
 
 
 	angular
-		.module('app.users')
-		.controller('UsersCtrl', UsersCtrl);
+		.module('app.usersDetail')
+		.controller('UsersDetailCtrl', UsersDetailCtrl);
 
-	UsersCtrl.$inject = [ 'apiService' ];
+	UsersDetailCtrl.$inject = [ '$routeParams', 'apiService', '_' ];
 })();

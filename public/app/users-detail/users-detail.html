@@ -1,0 +1,41 @@
+<div class="users-page-wrapper container">
+	<div class="users-page-header page-main-header">
+		<span>Users</span>
+	</div>
+
+	<div class="user-details-container">
+		<div class="user-details-content" ng-if="vm.userExists">
+			<div class="user-details-header">
+				<span class="u-header">{{ vm.currUserName }}'s Details</span>
+				<a class="u-back-btn" href="#/users">(Back)</a>
+			</div>
+			<div class="user-details">
+				<span class="col-xs-3 user-detail-key">First Name</span>
+				<span class="col-xs-3">{{ vm.currUser.first_name }}</span>
+				<span class="col-xs-3 user-detail-key">Last Name</span>
+				<span class="col-xs-3">{{ vm.currUser.last_name }}</span>
+				<span class="col-xs-3 user-detail-key">Nickname</span>
+				<span class="col-xs-3">{{ vm.currUser.nickname }}</span>
+				<span class="col-xs-3 user-detail-key">Username</span>
+				<span class="col-xs-3">{{ vm.currUser.username }}</span>
+				<span class="col-xs-3 user-detail-key">Designation</span>
+				<span class="col-xs-3">{{ vm.currUser.designation }}</span>
+				<span class="col-xs-3 user-detail-key">Company Name</span>
+				<span class="col-xs-3">{{ vm.currUser.company_name }}</span>
+				<span class="col-xs-3 user-detail-key">Mobile No.</span>
+				<span class="col-xs-3">{{ vm.currUser.mobile_num }}</span>
+				<span class="col-xs-3 user-detail-key">Plate No.</span>
+				<span class="col-xs-3">{{ vm.currUser.plate_no }}</span>
+				<span class="clearfix"></span>
+			</div>
+		</div>
+
+		<div class="user-details-content" ng-if="!vm.userExists">
+			<span class="user-details-empty-msg">User Does Not Exist!</span>
+			<a class="u-back-btn" href="#/users">(Back)</a>
+		</div>
+	</div>
+
+
+
+</div>
