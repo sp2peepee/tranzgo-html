@@ -29,4 +29,32 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="rental-item-details-container" ng-if="vm.isDetailMode">
+		<div class="rental-item-details-content">
+			<div class="rental-item-details-header">
+				<span class="u-header">{{ vm.currItemName }}'s Details</span>
+				<span class="u-back-btn" ng-click="vm.viewItemList()">(Back)</span>
+			</div>
+			<div class="rental-item-details">
+				<span class="col-xs-3 rental-item-detail-key">Plate No.</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'plate_no' ] }}</span>
+				<span class="col-xs-3 rental-item-detail-key">Make</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'make' ] }}</span>
+				<span class="col-xs-3 rental-item-detail-key">Model</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'model' ] }}</span>
+				<span class="col-xs-3 rental-item-detail-key">Year</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'year_model' ] }}</span>
+				<span class="col-xs-3 rental-item-detail-key">Transmission</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'transmission' ] }}</span>
+				<span class="col-xs-3 rental-item-detail-key">Max. Load</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'max_load' ] }}</span>
+				<span class="col-xs-3 rental-item-detail-key">Times Rented</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'times_rented' ] }}</span>
+				<span class="col-xs-3 rental-item-detail-key">Available?</span>
+				<span class="col-xs-3">{{ vm.currItem[ 'is_available' ] }}</span>
+				<span class="clearfix"></span>
+			</div>
+		</div>
+	</div>
 </div>

@@ -25,11 +25,27 @@
 			return $http.get( baseURL + 'api/v1/user/' + userId + '?token=' + authToken );
 		}
 
+		function getRentalItems ( data ) {
+			// TODO : Call API for retrieving rental item list
+		}
+
+		function getRentalItemDetails ( itemId ) {
+			// TODO : Call API for retrieving rental item details
+		}
+
 		var service = {
 			'tranzGoApiCall' : {
 				'authenticate'   : authenticate,
-				'getUsers'       : getUsers,
-				'getUserDetails' : getUserDetails
+
+				'users' : {
+					'getUsers'       : getUsers,
+					'getUserDetails' : getUserDetails
+				},
+
+				'rentalItems' : {
+					'getRentalItems'       : getRentalItems,
+					'getRentalItemDetails' : getRentalItemDetails
+				}
 			}
 		};
 

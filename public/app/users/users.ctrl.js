@@ -96,7 +96,7 @@
 
 		// Fetches details for a specific user
 		function getUserDetails ( userId ) {
-			apiService.tranzGoApiCall.getUserDetails( userId ).then( getUserDetailsHandler );
+			apiService.tranzGoApiCall.users.getUserDetails( userId ).then( getUserDetailsHandler );
 		}
 
 		// Handles the getUsers response
@@ -113,7 +113,7 @@
 				'offsetVal' : '0'
 			};
 
-			apiService.tranzGoApiCall.getUsers( data ).then( getUserListHandler );
+			apiService.tranzGoApiCall.users.getUsers( data ).then( getUsersHandler );
 		}
 
 		// Test function to call authentication
