@@ -27,10 +27,12 @@
 
 		function getRentalItems ( data ) {
 			// TODO : Call API for retrieving rental item list
+			return $http.get( baseURL + 'api/v1/vehicle?page[limit]=' + data.limitVal + '&page[offset]=' + data.offsetVal + '&token=' authToken)
 		}
 
 		function getRentalItemDetails ( itemId ) {
 			// TODO : Call API for retrieving rental item details
+			return $http.get( baseURL + 'api/v1/vehicle/' + userId + '?token=' + authToken );
 		}
 
 		var service = {

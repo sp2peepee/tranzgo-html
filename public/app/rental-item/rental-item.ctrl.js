@@ -72,7 +72,7 @@
 				'offsetVal' : '0'
 			};
 
-			apiService.tranzGoApiCall.users.getUsers( data ).then( getItemsHandler );
+			apiService.tranzGoApiCall.rentalItems.getRentalItems( data ).then( getItemsHandler );
 		}
 
 		// Test function to call authentication

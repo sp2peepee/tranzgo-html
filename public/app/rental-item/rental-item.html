@@ -20,7 +20,7 @@
 					<span class="col-xs-3">Model</span>
 					<span class="col-xs-2">Available?</span>
 					<span class="col-xs-2">Status</span>
-					<span class="col-xs-2">Details</span>
+					<span class="col-xs-2">Actions</span>
 					<span class="clearfix"></span>
 				</div>
 				<div class="rental-item-list-details">
@@ -30,7 +30,7 @@
 						<span class="col-xs-2" ng-bind="vm.convertStatusCodes( item.is_available )"></span>
 						<span class="col-xs-2" ng-bind="vm.convertStatusCodes( item.status )"></span>
 						<div class="col-xs-2 rental-item-actions">
-							<a class="view-link" href="#/rental/{{ item.id }}">View</a> | <span class="view-link" ng-click="vm.deleteItemConfirmation( item.id )">Delete</span>
+							<a class="view-link" href="#/rental/{{ item.id }}">View Details</a> | <span class="view-link" ng-click="vm.deleteItemConfirmation( item.id )">Delete</span>
 						</div>
 						<span class="clearfix"></span>
 					</div>
