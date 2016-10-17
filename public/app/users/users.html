@@ -5,25 +5,33 @@
 
 	<div class="user-list-container">
 		<div class="user-list-content">
-			<div class="user-list-header">
+			<div class="user-list-header pull-left">
 				<span>User List</span>
 			</div>
+			<div class="user-list-search pull-right">
+				<input type="text" ng-model="searchUserText" />
+			</div>
+
+			<div class="clearfix"></div>
+
 			<div class="user-list-body row">
 				<div class="user-list-table-heads">
-					<span class="col-xs-3">First Name</span>
-					<span class="col-xs-3">Last Name</span>
+					<span class="col-xs-2">First Name</span>
+					<span class="col-xs-2">Last Name</span>
 					<span class="col-xs-3">Mobile No.</span>
-					<span class="col-xs-2">Plate No.</span>
-					<span class="col-xs-1">Details</span>
+					<span class="col-xs-3">Plate No.</span>
+					<span class="col-xs-2">Details</span>
 					<span class="clearfix"></span>
 				</div>
 				<div class="user-list-details">
-					<div class="user-entry" ng-repeat="user in vm.userList">
-						<span class="col-xs-3" ng-bind="user.first_name"></span>
-						<span class="col-xs-3" ng-bind="user.last_name"></span>
+					<div class="user-entry" ng-repeat="user in vm.userList | filter:searchUserText">
+						<span class="col-xs-2" ng-bind="user.first_name"></span>
+						<span class="col-xs-2" ng-bind="user.last_name"></span>
 						<span class="col-xs-3" ng-bind="user.mobile_num"></span>
-						<span class="col-xs-2" ng-bind="user.plate_no"></span>
-						<a class="col-xs-1 view-link" href="#/users/{{ user.id }}">View</a>
+						<span class="col-xs-3" ng-bind="user.plate_no"></span>
+						<div class="col-xs-2 user-actions">
+							<a class="view-link" href="#/users/{{ user.id }}">View</a> | <span class="view-link" ng-click="vm.deleteUserConfirmation( user.id )">Delete</span>
+						</div>
 						<span class="clearfix"></span>
 					</div>
 				</div>

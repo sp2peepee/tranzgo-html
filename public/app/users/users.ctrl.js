@@ -43,6 +43,16 @@
 			}
 		];
 
+		function deleteUser ( userId ) {
+			// TODO: Call delete user API here
+		}
+
+		function deleteUserConfirmation ( userId ) {
+			// TODO: Call modal here for confirmation
+
+			console.log( 'Delete user ' + userId + '?' );
+		}
+
 		// Handles the getUsers response
 		function getUsersHandler ( result ) {
 			if ( result ) {
@@ -80,6 +90,8 @@
 		}
 
 		activate();
+
+		self.deleteUserConfirmation = deleteUserConfirmation;
 	}
 
 

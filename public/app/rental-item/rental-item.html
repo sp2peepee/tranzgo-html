@@ -2,27 +2,36 @@
 	<div class="rental-item-page-header page-main-header">
 		<span>Rental Item</span>
 	</div>
+
 	<div class="rental-item-list-container">
 		<div class="rental-item-list-content">
-			<div class="rental-item-list-header">
+			<div class="rental-item-list-header pull-left">
 				<span>Rental Item List</span>
 			</div>
-			<div class="rental-item-list-body row">
+			<div class="rental-item-list-search pull-right">
+				<input type="text" ng-model="searchItemText" />
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="rental-item-list-body row clear">
 				<div class="rental-item-list-table-heads">
 					<span class="col-xs-3">Plate No.</span>
 					<span class="col-xs-3">Model</span>
-					<span class="col-xs-3">Available?</span>
+					<span class="col-xs-2">Available?</span>
 					<span class="col-xs-2">Status</span>
-					<span class="col-xs-1">Details</span>
+					<span class="col-xs-2">Details</span>
 					<span class="clearfix"></span>
 				</div>
 				<div class="rental-item-list-details">
-					<div class="item-entry" ng-repeat="item in vm.itemList">
+					<div class="item-entry" ng-repeat="item in vm.itemList | filter:searchItemText">
 						<span class="col-xs-3" ng-bind="item.plate_no"></span>
 						<span class="col-xs-3">{{ item.make }} {{ item.model }} {{ item.year_model }}</span>
-						<span class="col-xs-3" ng-bind="vm.convertStatusCodes( item.is_available )"></span>
+						<span class="col-xs-2" ng-bind="vm.convertStatusCodes( item.is_available )"></span>
 						<span class="col-xs-2" ng-bind="vm.convertStatusCodes( item.status )"></span>
-						<a class="col-xs-1 view-link" href="#/rental/{{ item.id }}">View</a>
+						<div class="col-xs-2 rental-item-actions">
+							<a class="view-link" href="#/rental/{{ item.id }}">View</a> | <span class="view-link" ng-click="vm.deleteItemConfirmation( item.id )">Delete</span>
+						</div>
 						<span class="clearfix"></span>
 					</div>
 				</div>

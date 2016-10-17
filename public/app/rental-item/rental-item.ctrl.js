@@ -39,6 +39,16 @@
 			}
 		];
 
+		function deleteRentalItem ( itemId ) {
+			// TODO: Call delete rental item API here
+		}
+
+		function deleteItemConfirmation ( itemId ) {
+			// TODO: Call modal here for confirmation
+
+			console.log( 'Delete item ' + itemId + '?' );
+		}
+
 		// Convert status codes to words
 		function convertStatusCodes ( status ) {
 			if ( status ) {
@@ -46,58 +56,6 @@
 			}
 
 			return 'No';
-		}
-
-		// Test function to set the view to details
-		function viewItemDetails ( itemId ) {
-			self.isDetailMode = true;
-			self.currItem     = _.find( self.itemList, { 'id' : itemId } );
-			self.currItemName = self.currItem.make + ' ' + self.currItem.model + ' ' + self.currItem.year_model + ' (' + self.currItem.plate_no + ')';
-
-			console.log( 'VIEW DETAILS FOR RENTAL ITEM: ' + itemId );
-			console.log( self.currItemName );
-		}
-
-		// Test function to set the view to list
-		function viewItemList () {
-			self.isDetailMode = false;
-			self.currItem     = {};
-			self.currItemName = '';
-
-			console.log( 'VIEW LIST OF RENTAL ITEMS' );
-		}
-
-		// Sets the view between list or detail view
-		function toggleRentalItemView ( itemId ) {
-			if ( itemId ) {
-				console.log( 'VIEW DETAILS FOR ITEM: ' + itemId );
-				self.isDetailMode = true;
-
-				getUserDetails( itemId );
-
-				return;
-			}
-
-			self.isDetailMode = false;
-			self.currItem     = {};
-			self.currItemName = '';
-
-			console.log( 'VIEW LIST OF ITEMS' );
-		}
-
-		// Handles the getItemDetails response
-		function getItemDetailsHandler ( result ) {
-			if ( result ) {
-				self.currItem     = result.data;
-				self.currItemName = result.data.first_name + ' ' + result.data.last_name;
-
-				console.log( self.currItemName );
-			}
-		}
-
-		// Fetches details for a specific rental item
-		function getItemDetails ( itemId ) {
-			apiService.tranzGoApiCall.rentalItems.getRentalItemDetails( itemId ).then( getItemDetailsHandler );
 		}
 
 		// Handles the getItems response
@@ -140,9 +98,8 @@
 
 		activate();
 
-		self.convertStatusCodes = convertStatusCodes;
-		self.viewItemList       = viewItemList;
-		self.viewItemDetails    = viewItemDetails;
+		self.convertStatusCodes     = convertStatusCodes;
+		self.deleteItemConfirmation = deleteItemConfirmation;
 	}
 
 

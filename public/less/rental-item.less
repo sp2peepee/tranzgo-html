@@ -21,9 +21,12 @@
 					font-weight : 200;
 
 					.view-link {
-						text-decoration : underline;
-						cursor          : pointer;
-						color           : @global-link-default;
+						cursor : pointer;
+						color  : @global-link-default;
+
+						&:hover {
+							text-decoration : underline;
+						}
 					}
 				}
 			}
