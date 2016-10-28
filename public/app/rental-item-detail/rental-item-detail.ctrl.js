@@ -3,6 +3,7 @@
 		var self = this;
 
 		self.itemExists = false;
+		self.editMode   = false;
 
 		self.itemList = [
 			{
@@ -40,6 +41,20 @@
 				'updated_at'   : ''
 			}
 		];
+
+		function disableEditMode () {
+			self.editMode = false;
+		}
+
+		function saveChanges () {
+			// TODO: Call UPDATE API
+
+			disableEditMode();
+		}
+
+		function enableEditMode () {
+			self.editMode = true;
+		}
 
 		function confirmDeleteModal () {
 			console.log( 'OPEN DELETE MODAL' );
@@ -130,6 +145,9 @@
 
 		self.convertStatusCodes = convertStatusCodes;
 		self.confirmDeleteModal = confirmDeleteModal;
+		self.enableEditMode     = enableEditMode;
+		self.disableEditMode    = disableEditMode;
+		self.saveChanges        = saveChanges;
 	}
 
 

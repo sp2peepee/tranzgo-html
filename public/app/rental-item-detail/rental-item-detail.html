@@ -11,25 +11,40 @@
 				<span class="u-del-btn pull-right">
 					<button type="button" class="btn btn-danger" ng-click="vm.confirmDeleteModal()">Delete</button>
 				</span>
+				<span class="u-edit-btn pull-right">
+					<button ng-if="!vm.editMode" type="button" class="btn btn-default" ng-click="vm.enableEditMode()">Edit</button>
+					<button ng-if="vm.editMode" type="button" class="btn btn-default" ng-click="vm.disableEditMode()">Cancel</button>
+				</span>
+				<span class="u-save-btn pull-right">
+					<button ng-if="vm.editMode" type="button" class="btn btn-primary" ng-click="vm.saveChanges()">Save</button>
+				</span>
 				<div class="clearfix"></div>
 			</div>
 			<div class="rental-item-details">
 				<span class="col-xs-3 rental-item-detail-key">Plate No.</span>
-				<span class="col-xs-3">{{ vm.currItem.plate_no }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currItem.plate_no }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.plate_no" /></span>
 				<span class="col-xs-3 rental-item-detail-key">Make</span>
-				<span class="col-xs-3">{{ vm.currItem.make }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currItem.make }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.make" /></span>
 				<span class="col-xs-3 rental-item-detail-key">Model</span>
-				<span class="col-xs-3">{{ vm.currItem.model }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currItem.model }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.model" /></span>
 				<span class="col-xs-3 rental-item-detail-key">Year</span>
-				<span class="col-xs-3">{{ vm.currItem.year_model }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currItem.year_model }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.year_model" /></span>
 				<span class="col-xs-3 rental-item-detail-key">Transmission</span>
-				<span class="col-xs-3">{{ vm.currItem.transmission }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currItem.transmission }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.transmission" /></span>
 				<span class="col-xs-3 rental-item-detail-key">Max. Load</span>
-				<span class="col-xs-3">{{ vm.currItem.max_load }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currItem.max_load }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.max_load" /></span>
 				<span class="col-xs-3 rental-item-detail-key">Times Rented</span>
-				<span class="col-xs-3">{{ vm.currItem.times_rented }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currItem.times_rented }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.times_rented" /></span>
 				<span class="col-xs-3 rental-item-detail-key">Available?</span>
-				<span class="col-xs-3">{{ vm.convertStatusCodes( vm.currItem.is_available ) }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.convertStatusCodes( vm.currItem.is_available ) }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currItem.is_available" /></span>
 				<span class="clearfix"></span>
 			</div>
 		</div>
