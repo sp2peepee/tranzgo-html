@@ -1,5 +1,5 @@
 ( function () {
-	function UsersCtrl ( apiService ) {
+	function UsersCtrl ( $uibModal, apiService ) {
 		var self = this;
 
 		self.userList = [
@@ -53,6 +53,27 @@
 			console.log( 'Delete user ' + userId + '?' );
 		}
 
+		function confirmDeleteModal ( userId ) {
+			console.log( 'OPEN DELETE MODAL' );
+			var modalInstance = $uibModal.open( {
+				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
+				'controller'   : 'DeleteConfirmationModalCtrl',
+				'controllerAs' : 'vm',
+				'resolve'      : {
+					'dataType' : function () {
+						return 'User';
+					},
+					'dataId' : function () {
+						return userId;
+					}
+				}
+			} );
+
+			modalInstance.result.then( function () {
+				// TODO: Call delete API
+			} );
+		}
+
 		// Handles the getUsers response
 		function getUsersHandler ( result ) {
 			if ( result ) {
@@ -91,7 +112,7 @@
 
 		activate();
 
-		self.deleteUserConfirmation = deleteUserConfirmation;
+		self.confirmDeleteModal = confirmDeleteModal;
 	}
 
 
@@ -99,5 +120,5 @@
 		.module('app.users')
 		.controller('UsersCtrl', UsersCtrl);
 
-	UsersCtrl.$inject = [ 'apiService' ];
+	UsersCtrl.$inject = [ '$uibModal', 'apiService' ];
 })();

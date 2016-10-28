@@ -30,7 +30,7 @@
 						<span class="col-xs-3" ng-bind="user.mobile_num"></span>
 						<span class="col-xs-3" ng-bind="user.plate_no"></span>
 						<div class="col-xs-2 user-actions">
-							<a class="view-link" href="#/users/{{ user.id }}">View Details</a> | <span class="view-link" ng-click="vm.deleteUserConfirmation( user.id )">Delete</span>
+							<a class="view-link" href="#/users/{{ user.id }}">View Details</a> | <span class="view-link" ng-click="vm.confirmDeleteModal( user.id )">Delete</span>
 						</div>
 						<span class="clearfix"></span>
 					</div>
