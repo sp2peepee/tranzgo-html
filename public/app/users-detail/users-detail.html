@@ -8,6 +8,10 @@
 			<div class="user-details-header">
 				<span class="u-header">{{ vm.currUserName }}'s Details</span>
 				<a class="u-back-btn" href="#/users">(Back)</a>
+				<span class="u-del-btn pull-right">
+					<button type="button" class="btn btn-danger" ng-click="vm.confirmDeleteModal()">Delete</button>
+				</span>
+				<div class="clearfix"></div>
 			</div>
 			<div class="user-details">
 				<span class="col-xs-3 user-detail-key">First Name</span>

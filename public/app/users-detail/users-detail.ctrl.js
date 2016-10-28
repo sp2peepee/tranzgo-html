@@ -1,8 +1,9 @@
 ( function () {
-	function UsersDetailCtrl ( $routeParams, apiService, _  ) {
+	function UsersDetailCtrl ( $routeParams, $uibModal, apiService, _  ) {
 		var self = this;
 
 		self.currUser     = {};
+		self.currUserId   = 0;
 		self.currUserName = '';
 		self.userExists   = false;
 
@@ -46,6 +47,27 @@
 				'system_code'      : 'OAMUQUNA'
 			}
 		];
+
+		function confirmDeleteModal () {
+			console.log( 'OPEN DELETE MODAL' );
+			var modalInstance = $uibModal.open( {
+				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
+				'controller'   : 'DeleteConfirmationModalCtrl',
+				'controllerAs' : 'vm',
+				'resolve'      : {
+					'dataType' : function () {
+						return 'User';
+					},
+					'dataId' : function () {
+						return self.currUserId;
+					}
+				}
+			} );
+
+			modalInstance.result.then( function () {
+				// TODO: Call delete API
+			} );
+		}
 
 		// Test function to set the view to details
 		function viewUserDetails ( userId ) {
@@ -98,12 +120,15 @@
 
 			if ( $routeParams.userId ) {
 				console.log( 'IS DETAILS!' );
-				viewUserDetails( $routeParams.userId );
+				self.currUserId = $routeParams.userId;
+				viewUserDetails( self.currUserId );
 			}
 			// Should call getUsers function here
 		}
 
 		activate();
+
+		self.confirmDeleteModal = confirmDeleteModal;
 	}
 
 
@@ -111,5 +136,5 @@
 		.module('app.usersDetail')
 		.controller('UsersDetailCtrl', UsersDetailCtrl);
 
-	UsersDetailCtrl.$inject = [ '$routeParams', 'apiService', '_' ];
+	UsersDetailCtrl.$inject = [ '$routeParams', '$uibModal', 'apiService', '_' ];
 })();

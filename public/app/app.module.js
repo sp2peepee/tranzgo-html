@@ -8,6 +8,9 @@
 		'app.users',
 		'app.usersDetail',
 		'app.rental',
-		'app.rentalDetail'
+		'app.rentalDetail',
+		'app.components',
+
+		'ui.bootstrap'
 	])
 })();
