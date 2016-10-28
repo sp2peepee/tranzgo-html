@@ -6,6 +6,7 @@
 		self.currUserId   = 0;
 		self.currUserName = '';
 		self.userExists   = false;
+		self.editMode     = false;
 
 		self.userList = [
 			{
@@ -47,6 +48,20 @@
 				'system_code'      : 'OAMUQUNA'
 			}
 		];
+
+		function disableEditMode () {
+			self.editMode = false;
+		}
+
+		function saveChanges () {
+			// TODO: Call UPDATE API
+
+			disableEditMode();
+		}
+
+		function enableEditMode () {
+			self.editMode = true;
+		}
 
 		function confirmDeleteModal () {
 			console.log( 'OPEN DELETE MODAL' );
@@ -129,6 +144,9 @@
 		activate();
 
 		self.confirmDeleteModal = confirmDeleteModal;
+		self.enableEditMode     = enableEditMode;
+		self.disableEditMode    = disableEditMode;
+		self.saveChanges        = saveChanges;
 	}
 
 

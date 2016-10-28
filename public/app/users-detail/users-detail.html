@@ -11,25 +11,40 @@
 				<span class="u-del-btn pull-right">
 					<button type="button" class="btn btn-danger" ng-click="vm.confirmDeleteModal()">Delete</button>
 				</span>
+				<span class="u-edit-btn pull-right">
+					<button ng-if="!vm.editMode" type="button" class="btn btn-default" ng-click="vm.enableEditMode()">Edit</button>
+					<button ng-if="vm.editMode" type="button" class="btn btn-default" ng-click="vm.disableEditMode()">Cancel</button>
+				</span>
+				<span class="u-save-btn pull-right">
+					<button ng-if="vm.editMode" type="button" class="btn btn-primary" ng-click="vm.saveChanges()">Save</button>
+				</span>
 				<div class="clearfix"></div>
 			</div>
 			<div class="user-details">
 				<span class="col-xs-3 user-detail-key">First Name</span>
-				<span class="col-xs-3">{{ vm.currUser.first_name }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.first_name }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.first_name" /></span>
 				<span class="col-xs-3 user-detail-key">Last Name</span>
-				<span class="col-xs-3">{{ vm.currUser.last_name }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.last_name }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.last_name" /></span>
 				<span class="col-xs-3 user-detail-key">Nickname</span>
-				<span class="col-xs-3">{{ vm.currUser.nickname }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.nickname }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.nickname" /></span>
 				<span class="col-xs-3 user-detail-key">Username</span>
-				<span class="col-xs-3">{{ vm.currUser.username }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.username }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.username" /></span>
 				<span class="col-xs-3 user-detail-key">Designation</span>
-				<span class="col-xs-3">{{ vm.currUser.designation }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.designation }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.designation" /></span>
 				<span class="col-xs-3 user-detail-key">Company Name</span>
-				<span class="col-xs-3">{{ vm.currUser.company_name }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.company_name }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.company_name" /></span>
 				<span class="col-xs-3 user-detail-key">Mobile No.</span>
-				<span class="col-xs-3">{{ vm.currUser.mobile_num }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.mobile_num }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.mobile_num" /></span>
 				<span class="col-xs-3 user-detail-key">Plate No.</span>
-				<span class="col-xs-3">{{ vm.currUser.plate_no }}</span>
+					<span ng-if="!vm.editMode" class="col-xs-3">{{ vm.currUser.plate_no }}</span>
+					<span ng-if="vm.editMode" class="col-xs-3"><input type="text" ng-model="vm.currUser.plate_no" /></span>
 				<span class="clearfix"></span>
 			</div>
 		</div>
