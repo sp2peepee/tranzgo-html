@@ -47,12 +47,6 @@
 			// TODO: Call delete user API here
 		}
 
-		function deleteUserConfirmation ( userId ) {
-			// TODO: Call modal here for confirmation
-
-			console.log( 'Delete user ' + userId + '?' );
-		}
-
 		function confirmDeleteModal ( userId ) {
 			console.log( 'OPEN DELETE MODAL' );
 			var modalInstance = $uibModal.open( {

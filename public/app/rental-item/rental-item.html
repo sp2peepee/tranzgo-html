@@ -30,7 +30,7 @@
 						<span class="col-xs-2" ng-bind="vm.convertStatusCodes( item.is_available )"></span>
 						<span class="col-xs-2" ng-bind="vm.convertStatusCodes( item.status )"></span>
 						<div class="col-xs-2 rental-item-actions">
-							<a class="view-link" href="#/rental/{{ item.id }}">View Details</a> | <span class="view-link" ng-click="vm.deleteItemConfirmation( item.id )">Delete</span>
+							<a class="view-link" href="#/rental/{{ item.id }}">View Details</a> | <span class="view-link" ng-click="vm.confirmDeleteModal( item.id )">Delete</span>
 						</div>
 						<span class="clearfix"></span>
 					</div>

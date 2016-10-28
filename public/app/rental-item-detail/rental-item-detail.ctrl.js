@@ -1,5 +1,5 @@
 ( function () {
-	function RentalItemDetailCtrl ( $routeParams, apiService, _ ) {
+	function RentalItemDetailCtrl ( $uibModal, $routeParams, apiService, _ ) {
 		var self = this;
 
 		self.itemExists = false;
@@ -40,6 +40,27 @@
 				'updated_at'   : ''
 			}
 		];
+
+		function confirmDeleteModal () {
+			console.log( 'OPEN DELETE MODAL' );
+			var modalInstance = $uibModal.open( {
+				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
+				'controller'   : 'DeleteConfirmationModalCtrl',
+				'controllerAs' : 'vm',
+				'resolve'      : {
+					'dataType' : function () {
+						return 'Rental Item';
+					},
+					'dataId' : function () {
+						return self.currItemId;
+					}
+				}
+			} );
+
+			modalInstance.result.then( function () {
+				// TODO: Call delete API
+			} );
+		}
 
 		// Convert status codes to words
 		function convertStatusCodes ( status ) {
@@ -98,7 +119,8 @@
 
 			if ( $routeParams.itemId ) {
 				console.log( 'IS DETAILS!' );
-				viewItemDetails( $routeParams.itemId );
+				self.currItemId = $routeParams.itemId;
+				viewItemDetails( self.currItemId );
 			}
 
 			// TODO: All functionality should start here
@@ -107,6 +129,7 @@
 		activate();
 
 		self.convertStatusCodes = convertStatusCodes;
+		self.confirmDeleteModal = confirmDeleteModal;
 	}
 
 
@@ -114,5 +137,5 @@
 		.module('app.rentalDetail')
 		.controller('RentalItemDetailCtrl', RentalItemDetailCtrl);
 
-	RentalItemDetailCtrl.$inject = [ '$routeParams', 'apiService', '_' ];
+	RentalItemDetailCtrl.$inject = [ '$uibModal', '$routeParams', 'apiService', '_' ];
 })();

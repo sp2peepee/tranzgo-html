@@ -1,5 +1,5 @@
 ( function () {
-	function RentalItemCtrl ( apiService, _ ) {
+	function RentalItemCtrl ( $uibModal, apiService, _ ) {
 		var self = this;
 
 		self.itemList = [
@@ -43,10 +43,25 @@
 			// TODO: Call delete rental item API here
 		}
 
-		function deleteItemConfirmation ( itemId ) {
-			// TODO: Call modal here for confirmation
+		function confirmDeleteModal ( itemId ) {
+			console.log( 'OPEN DELETE MODAL' );
+			var modalInstance = $uibModal.open( {
+				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
+				'controller'   : 'DeleteConfirmationModalCtrl',
+				'controllerAs' : 'vm',
+				'resolve'      : {
+					'dataType' : function () {
+						return 'Rental Item';
+					},
+					'dataId' : function () {
+						return self.currItemId;
+					}
+				}
+			} );
 
-			console.log( 'Delete item ' + itemId + '?' );
+			modalInstance.result.then( function () {
+				// TODO: Call delete API
+			} );
 		}
 
 		// Convert status codes to words
@@ -98,8 +113,8 @@
 
 		activate();
 
-		self.convertStatusCodes     = convertStatusCodes;
-		self.deleteItemConfirmation = deleteItemConfirmation;
+		self.convertStatusCodes = convertStatusCodes;
+		self.confirmDeleteModal = confirmDeleteModal;
 	}
 
 
@@ -107,5 +122,5 @@
 		.module('app.rental')
 		.controller('RentalItemCtrl', RentalItemCtrl);
 
-	RentalItemCtrl.$inject = [ 'apiService', '_' ];
+	RentalItemCtrl.$inject = [ '$uibModal', 'apiService', '_' ];
 })();

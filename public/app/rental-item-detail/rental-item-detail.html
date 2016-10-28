@@ -8,6 +8,10 @@
 			<div class="rental-item-details-header">
 				<span class="u-header">{{ vm.currItemName }}'s Details</span>
 				<a class="u-back-btn" href="#/rental">(Back)</a>
+				<span class="u-del-btn pull-right">
+					<button type="button" class="btn btn-danger" ng-click="vm.confirmDeleteModal()">Delete</button>
+				</span>
+				<div class="clearfix"></div>
 			</div>
 			<div class="rental-item-details">
 				<span class="col-xs-3 rental-item-detail-key">Plate No.</span>
