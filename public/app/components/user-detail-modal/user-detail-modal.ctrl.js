@@ -81,14 +81,6 @@
 			$uibModalInstance.dismiss();
 		}
 
-		function getUserType () {
-			return self.userTypeList[ self.currUser.account_type ];
-		}
-
-		function getUserStatus () {
-
-		}
-
 		function getUserDetails () {
 			self.currUser = _.find( self.userList, { 'id' : parseInt( userId ) } );
 		}

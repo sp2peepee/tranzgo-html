@@ -80,6 +80,19 @@
 			// TODO: Call delete user API here
 		}
 
+		function addUserModal ( userId ) {
+			console.log( 'OPEN ADD USER MODAL' );
+			var modalInstance = $uibModal.open( {
+				'templateUrl'  : '/app/components/user-add-modal/user-add-modal.html',
+				'controller'   : 'UserAddModalCtrl',
+				'controllerAs' : 'vm'
+			} );
+
+			modalInstance.result.then( function ( res ) {
+				// TODO: Call Add API
+			} );
+		}
+
 		function viewDetailsModal ( userId ) {
 			console.log( 'OPEN VIEW DETAILS MODAL' );
 			var modalInstance = $uibModal.open( {
@@ -91,10 +104,6 @@
 						return userId;
 					}
 				}
-			} );
-
-			modalInstance.result.then( function () {
-				// TODO: Call delete API
 			} );
 		}
 
@@ -159,6 +168,7 @@
 
 		self.confirmDeleteModal = confirmDeleteModal;
 		self.viewDetailsModal   = viewDetailsModal;
+		self.addUserModal       = addUserModal;
 	}
 
 
