@@ -22,21 +22,25 @@
 
 			<div class="user-list-body row">
 				<div class="user-list-table-heads">
-					<span class="col-xs-2">First Name</span>
-					<span class="col-xs-2">Last Name</span>
-					<span class="col-xs-3">Mobile No.</span>
-					<span class="col-xs-3">Plate No.</span>
-					<span class="col-xs-2">Actions</span>
+					<span class="col-md-2">Name</span>
+					<span class="col-md-1">Nickname</span>
+					<span class="col-md-2">Company</span>
+					<span class="col-md-2">Account</span>
+					<span class="col-md-1">Status</span>
+					<span class="col-md-2">Updated On</span>
+					<span class="col-md-2">Options</span>
 					<span class="clearfix"></span>
 				</div>
 				<div class="user-list-details">
 					<div class="user-entry" ng-repeat="user in vm.userList | filter:searchUserText">
-						<span class="col-xs-2" ng-bind="user.first_name"></span>
-						<span class="col-xs-2" ng-bind="user.last_name"></span>
-						<span class="col-xs-3" ng-bind="user.mobile_num"></span>
-						<span class="col-xs-3" ng-bind="user.plate_no"></span>
-						<div class="col-xs-2 user-actions">
-							<a class="view-link" href="#/users/{{ user.id }}">View Details</a> | <span class="view-link" ng-click="vm.confirmDeleteModal( user.id )">Delete</span>
+						<span class="col-md-2 view-link" ng-click="vm.viewDetailsModal( user.id )">{{ user.first_name }} {{ user.last_name }}</span>
+						<span class="col-md-1" ng-bind="user.nickname"></span>
+						<span class="col-md-2" ng-bind="user.company_name"></span>
+						<span class="col-md-2" ng-bind="vm.userTypeList[ user.account_type - 1 ].userType"></span>
+						<span class="col-md-1" ng-bind="vm.userStatusList[ user.account_status ].userStatus" ng-class="user.account_status ? 'user-active' : 'user-inactive'"></span>
+						<span class="col-md-2" ng-bind="user.updated_at"></span>
+						<div class="col-md-2 user-actions">
+							<a class="view-link" href="">Edit</a> | <span class="view-link" ng-click="vm.confirmDeleteModal( user.id )">Delete</span>
 						</div>
 						<span class="clearfix"></span>
 					</div>

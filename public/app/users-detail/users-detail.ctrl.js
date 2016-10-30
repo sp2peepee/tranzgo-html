@@ -22,11 +22,14 @@
 				'account_status'   : 1,
 				'user_points'      : 0,
 				'misc_remarks'     : '',
-				'company_name'     : 'Tranzwatch',
+				'company_name'     : 'Tranzwatch Corp.',
 				'logged_in_status' : 1,
 				'vehicle_id'       : 1,
 				'plate_no'         : 'TXYA-1078',
-				'system_code'      : 'OAMUQUNA'
+				'system_code'      : 'OAMUQUNA',
+				'verified_on'      : '2016-10-04 11:47:00',
+				'created_at'       : '2016-10-03 10:31:00',
+				'updated_at'       : '2016-10-03 10:31:00'
 			},
 			{
 				'id': 2,
@@ -38,14 +41,17 @@
 				'nickname'         : 'Steph',
 				'designation'      : 'Manager',
 				'mobile_num'       : '032-928928-1919',
-				'account_status'   : 1,
+				'account_status'   : 0,
 				'user_points'      : 0,
 				'misc_remarks'     : '',
-				'company_name'     : 'Tranzwatch',
+				'company_name'     : 'Tranzwatch Corp.',
 				'logged_in_status' : 0,
 				'vehicle_id'       : null,
 				'plate_no'         : null,
-				'system_code'      : 'OAMUQUNA'
+				'system_code'      : 'OAMUQUNA',
+				'verified_on'      : '2016-10-11 11:47:00',
+				'created_at'       : '2016-10-03 10:31:00',
+				'updated_at'       : '2016-10-11 17:12:00'
 			}
 		];
 

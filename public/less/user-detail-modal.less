@@ -1,0 +1,57 @@
+.user-detail-modal {
+	.user-details-body {
+		margin-bottom : 20px;
+
+		.user-left-data {
+			margin-right : 100px;
+
+			.user-left-data-a {
+				margin-bottom : 20px;
+
+				.user-full-name {
+					font-size   : 20px;
+					font-weight : 700;
+				}
+				.user-user-name {
+					font-weight : 300;
+					color       : @global-link-default;
+				}
+			}
+
+			.user-left-data-b {
+				.user-created-at, .user-updated-at, .user-verified-on, .user-verified-at {
+					span {
+						font-weight : 300;
+					}
+				}
+			}
+		}
+
+		.user-right-data {
+			.user-company-name {
+				font-weight : 700;
+			}
+
+			.user-status span {
+				&.user-active {
+					color : @tranz-global-green;
+				}
+
+				&.user-inactive {
+					color : @tranz-global-red;
+				}
+			}
+		}
+	}
+
+	.user-body-details {
+		margin-bottom : 20px;
+	}
+
+	.user-related-requests {
+		.rel-req-header {
+			font-size   : 18px;
+			font-weight : 700;
+		}
+	}
+}

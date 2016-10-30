@@ -1,0 +1,58 @@
+<div class="modal-content user-detail-modal">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title">User Details</h3>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<div class="user-details-body">
+			<div class="user-left-data pull-left">
+				<div class="user-left-data-a">
+					<div class="user-full-name">
+						<span>{{ vm.currUser.first_name }} {{ vm.currUser.last_name }}</span>
+					</div>
+					<div class="user-nick-name">
+						<span ng-bind="vm.currUser.nickname"></span>
+					</div>
+					<div class="user-user-name">
+						<span ng-bind="vm.currUser.username"></span>
+					</div>
+				</div>
+
+				<div class="user-left-data-b">
+					<div class="user-created-at">
+						Created At: <span ng-bind="vm.currUser.created_at"></span>
+					</div>
+					<div class="user-updated-at">
+						Updated At: <span ng-bind="vm.currUser.updated_at"></span>
+					</div>
+					<div class="user-verified-on">
+						Verified On: <span ng-bind="vm.currUser.verified_on"></span>
+					</div>
+					<div class="user-verified-by">
+						Verified By: <span ng-bind=""></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="user-right-data pull-left">
+				<div class="user-company-name">
+					<span ng-bind="vm.currUser.company_name"></span>
+				</div>
+				<div class="user-status">
+					<span ng-bind="vm.userTypeList[ vm.currUser.account_type - 1 ].userType"></span> - <span ng-bind="vm.userStatusList[ vm.currUser.account_status ].userStatus" ng-class="vm.currUser.account_status ? 'user-active' : 'user-inactive'"></span>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="user-related-requests">
+			<div class="rel-req-header">
+				<span>REQUESTS ASSIGNED</span>
+			</div>
+			<div class="rel-req-content row">
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-default" type="button" ng-click="vm.closeModal()">OK</button>
+	</div>
+</div>
