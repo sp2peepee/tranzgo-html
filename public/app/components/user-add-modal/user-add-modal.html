@@ -3,119 +3,86 @@
 		<h3 class="modal-title" id="modal-title">Add New User</h3>
 	</div>
 	<div class="modal-body" id="modal-body">
-		<div class="user-form-body hidden-sm hidden-xs">
-			<form name="newUserForm" ng-submit="" novalidate>
-				<div class="user-fld-group-a">
-					<div class="user-fname">
-						<span class="col-md-4"><span class="pull-right">First Name</span></span>
-						<input class="col-md-8 pull-left form-control" type="text" ng-model="vm.firstName" />
-						<span class="clearfix"></span>
+		<form class="user-form-body form-horizontal">
+			<div class="user-fld-group-a">
+				<div class="form-group user-form-group user-fname">
+					<label class="col-xs-4 control-label">First Name</label>
+					<div class="col-xs-8">
+						<input type="text" class="form-control" placeholder="Enter First Name" />
 					</div>
-					<div class="user-lname">
-						<span class="col-md-4"><span class="pull-right">Last Name</span></span>
-						<input class="col-md-8 pull-left form-control" type="text" ng-model="vm.lastName" />
-						<span class="clearfix"></span>
-					</div>
-					<div class="user-nname">
-						<span class="col-md-4"><span class="pull-right">Nickname</span></span>
-						<input class="col-md-8 pull-left form-control" type="text" ng-model="vm.nickName" />
-						<span class="clearfix"></span>
-					</div>
-					<div class="clearfix"></div>
 				</div>
+				<div class="form-group user-form-group user-lname">
+					<label class="col-xs-4 control-label">Last Name</label>
+					<div class="col-xs-8">
+						<input type="text" class="form-control" placeholder="Enter Last Name" />
+					</div>
+				</div>
+				<div class="form-group user-form-group user-nname">
+					<label class="col-xs-4 control-label">Nickname</label>
+					<div class="col-xs-8">
+						<input type="text" class="form-control" placeholder="Enter Nickname" />
+					</div>
+				</div>
+			</div>
 
-				<div class="user-fld-group-b">
-					<div class="user-uname">
-						<span class="col-md-4"><span class="pull-right">Username</span></span>
-						<input class="col-md-8 pull-left form-control" type="text" ng-model="vm.userName" />
-						<span class="clearfix"></span>
+			<div class="user-fld-group-b">
+				<div class="form-group user-form-group user-uname">
+					<label class="col-xs-4 control-label">Username</label>
+					<div class="col-xs-8">
+						<input type="email" class="form-control" placeholder="Enter Username" />
 					</div>
-					<div class="user-pword">
-						<span class="col-md-4"><span class="pull-right">Password</span></span>
-						<input class="col-md-8 pull-left form-control" type="password" ng-model="vm.passWord" />
-						<span class="clearfix"></span>
-					</div>
-					<div class="user-pword-conf">
-						<span class="col-md-4"><span class="pull-right">Confirm Password</span></span>
-						<input class="col-md-8 pull-left form-control" type="password" ng-model="vm.passWordConfirm" />
-						<span class="clearfix"></span>
-					</div>
-					<div class="clearfix"></div>
 				</div>
+				<div class="form-group user-form-group user-pword">
+					<label class="col-xs-4 control-label">Password</label>
+					<div class="col-xs-8">
+						<input type="password" class="form-control" placeholder="Enter Password" />
+					</div>
+				</div>
+				<div class="form-group user-form-group user-pword-conf">
+					<label class="col-xs-4 control-label">Confirm Password</label>
+					<div class="col-xs-8">
+						<input type="password" class="form-control" placeholder="Re-type Password" />
+					</div>
+				</div>
+			</div>
 
-				<div class="user-fld-group-c">
-					<div class="dropdown open user-company">
-						<span class="col-md-4"><span class="pull-right">Company</span></span>
-						<div class="col-md-8 pull-left d-down">
-							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Company <span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="">Tranzwatch Corp.</a></li>
-								<li><a class="dropdown-item" href="">Company B</a></li>
-								<li><a class="dropdown-item" href="">Business C</a></li>
-								<li><a class="dropdown-item" href="">Employer D</a></li>
-							</ul>
-						</div>
-						<span class="clearfix"></span>
-					</div>
-					<div class="dropdown open user-account-type">
-						<span class="col-md-4"><span class="pull-right">Account</span></span>
-						<div class="col-md-8 pull-left d-down">
-							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Account <span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="">Admin</a></li>
-								<li><a class="dropdown-item" href="">Coordinator</a></li>
-								<li><a class="dropdown-item" href="">Booking Officer</a></li>
-								<li><a class="dropdown-item" href="">Driver</a></li>
-								<li><a class="dropdown-item" href="">Renter</a></li>
-							</ul>
-						</div>
-						<span class="clearfix"></span>
-					</div>
-					<div class="dropdown open user-account-status">
-						<span class="col-md-4"><span class="pull-right">Account</span></span>
-						<div class="col-md-8 pull-left d-down">
-							<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Account <span class="caret"></span></button>
-							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="">Active</a></li>
-								<li><a class="dropdown-item" href="">Inactive</a></li>
-							</ul>
-						</div>
-						<span class="clearfix"></span>
+			<div class="user-fld-group-c">
+				<div class="form-group user-form-group user-company">
+					<label class="col-xs-4 control-label">Company</label>
+					<div class="col-xs-8">
+						<select class="form-control">
+							<option>- Select a Company -</option>
+							<option>Tranzwatch Corp.</option>
+							<option>Company B</option>
+							<option>Business C</option>
+							<option>Employer D</option>
+						</select>
 					</div>
 				</div>
-			</form>
-			<div class="clearfix"></div>
-		</div>
-
-		<div class="user-form-body-mobile visible-sm visible-xs">
-			<form name="newUserForm" ng-submit="" novalidate>
-				<div class="user-fanme">
-					<span>First Name</span><br/>
-					<input class="col-xs-12 form-control" type="text" ng-model="vm.firstName" />
+				<div class="form-group user-form-group user-account">
+					<label class="col-xs-4 control-label">Account</label>
+					<div class="col-xs-8">
+						<select class="form-control">
+							<option>- Select an Account -</option>
+							<option>Admin</option>
+							<option>Coordinator</option>
+							<option>Booking Officer</option>
+							<option>Driver</option>
+							<option>Renter</option>
+						</select>
+					</div>
 				</div>
-				<div class="user-lname">
-					<span>Last Name</span><br/>
-					<input class="col-xs-12 form-control" type="text" ng-model="vm.lastName" />
+				<div class="form-group user-form-group user-status">
+					<div class="col-xs-offset-4 col-xs-8">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" /> Is Active?
+						</label>
+					</div>
+					</div>
 				</div>
-				<div class="user-nname">
-					<span>Nickname</span><br/>
-					<input class="col-xs-12 form-control" type="text" ng-model="vm.nickName" />
-				</div>
-				<div class="user-uname">
-					<span>Username</span><br/>
-					<input class="col-xs-12 form-control" type="text" ng-model="vm.userName" />
-				</div>
-				<div class="user-pword">
-					<span>Password</span><br/>
-					<input class="col-xs-12 form-control" type="text" ng-model="vm.passWord" />
-				</div>
-				<div class="user-pword-conf">
-					<span>Confirm Password</span><br/>
-					<input class="col-xs-12 form-control" type="text" ng-model="vm.passWordConfirm" />
-				</div>
-			</form>
-			<div class="clearfix"></div>
-		</div>
+			</div>
+		</form>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-primary" type="button" ng-click="vm.closeModal()">Save</button>

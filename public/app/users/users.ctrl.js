@@ -99,6 +99,7 @@
 				'templateUrl'  : '/app/components/user-detail-modal/user-detail-modal.html',
 				'controller'   : 'UserDetailModalCtrl',
 				'controllerAs' : 'vm',
+				'size'         : 'xs',
 				'resolve'      : {
 					'userId' : function () {
 						return userId;
@@ -162,6 +163,7 @@
 		function activate () {
 			console.log( 'Users controller activated' );
 			// Should call getUsers function here
+			getUserList();
 		}
 
 		activate();
