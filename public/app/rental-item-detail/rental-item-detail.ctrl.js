@@ -57,7 +57,6 @@
 		}
 
 		function confirmDeleteModal () {
-			console.log( 'OPEN DELETE MODAL' );
 			var modalInstance = $uibModal.open( {
 				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
 				'controller'   : 'DeleteConfirmationModalCtrl',
@@ -88,16 +87,12 @@
 
 		// Test function to set the view to details
 		function viewItemDetails ( itemId ) {
-			self.currItem     = _.find( self.itemList, { 'id' : parseInt( itemId ) } );
-			console.log( itemId );
+			self.currItem  = _.find( self.itemList, { 'id' : parseInt( itemId ) } );
 
 			if ( self.currItem ) {
 				self.itemExists   = true;
 				self.currItemName = self.currItem.make + ' ' + self.currItem.model + ' ' + self.currItem.year_model + ' (' + self.currItem.plate_no + ')';
 			}
-
-			console.log( 'VIEW DETAILS FOR RENTAL ITEM: ' + itemId );
-			console.log( self.currItemName );
 		}
 
 		// Handles the getItemDetails response
@@ -105,8 +100,6 @@
 			if ( result ) {
 				self.currItem     = result.data;
 				self.currItemName = result.data.first_name + ' ' + result.data.last_name;
-
-				console.log( self.currItemName );
 			}
 		}
 
@@ -133,7 +126,6 @@
 			console.log( 'RentalItem controller activated' );
 
 			if ( $routeParams.itemId ) {
-				console.log( 'IS DETAILS!' );
 				self.currItemId = $routeParams.itemId;
 				viewItemDetails( self.currItemId );
 			}

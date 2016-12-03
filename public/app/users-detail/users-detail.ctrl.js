@@ -70,7 +70,6 @@
 		}
 
 		function confirmDeleteModal () {
-			console.log( 'OPEN DELETE MODAL' );
 			var modalInstance = $uibModal.open( {
 				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
 				'controller'   : 'DeleteConfirmationModalCtrl',
@@ -100,10 +99,6 @@
 				self.userExists   = true;
 				self.currUserName = self.currUser.first_name + ' ' + self.currUser.last_name;
 			}
-
-			console.log( 'VIEW DETAILS FOR USER: ' + userId );
-			console.log( self );
-			console.log( self.currUserName );
 		}
 
 		// Handles the getUserDetails response
@@ -111,8 +106,6 @@
 			if ( result ) {
 				self.currUser     = result.data;
 				self.currUserName = result.data.first_name + ' ' + result.data.last_name;
-
-				console.log( self.currUserName );
 			}
 		}
 
@@ -137,7 +130,6 @@
 		// Activates the Users controller
 		function activate () {
 			console.log( 'Users-Detail controller activated' );
-			console.log( $routeParams );
 
 			if ( $routeParams.userId ) {
 				console.log( 'IS DETAILS!' );

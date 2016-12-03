@@ -44,7 +44,6 @@
 		}
 
 		function confirmDeleteModal ( itemId ) {
-			console.log( 'OPEN DELETE MODAL' );
 			var modalInstance = $uibModal.open( {
 				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
 				'controller'   : 'DeleteConfirmationModalCtrl',
@@ -107,7 +106,6 @@
 		function activate () {
 			console.log( 'RentalItem controller activated' );
 
-			self.testText = 'Hello world';
 			// TODO: All functionality should start here
 		}
 

@@ -3,11 +3,13 @@
 		<div class="nav-bar-logo pull-left">
 			<img src="https://lh5.googleusercontent.com/xOJGxev52kvHMsA8Xf9v5skS2iXmWLuXpa_u8Exe6vb68znvCzVAw0iuaz-SUzFmjhJq0EI-rZdyGA0=w2880-h1500" />
 		</div>
-		<a class="pull-left nav-bar-menu-item" href="#/users">
-			<span>Users</span>
-		</a>
-		<a class="pull-left nav-bar-menu-item" href="#/rental">
-			<span>Rental Items</span>
-		</a>
+		<div class="nav-bar-links" ng-hide="!authenticated">
+			<a class="pull-left nav-bar-menu-item" href="#/users">
+				<span>Users</span>
+			</a>
+			<a class="pull-left nav-bar-menu-item" href="#/rental">
+				<span>Rental Items</span>
+			</a>
+		</div>
 	</div>
 </div>

@@ -3,12 +3,10 @@
 		var self = this;
 
 		function confirmDelete () {
-			console.log( 'CONFIRM DELETE' );
-			$uibModalInstance.close();
+			$uibModalInstance.close( true );
 		}
 
 		function cancelDelete () {
-			console.log( 'CANCEL DELETE' );
 			$uibModalInstance.dismiss();
 		}
 

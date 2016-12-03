@@ -2,13 +2,28 @@
 	function UserAddModalCtrl ( $uibModalInstance ) {
 		var self = this;
 
-		function closeModal () {
-			console.log( 'CLOSE MODAL' );
-			$uibModalInstance.dismiss();
+		self.companyList = [
+				'Tranzwatch Corp.',
+				'Company B',
+				'Business C',
+				'Employer D',
+				'Global Zeal Inc.'
+		];
+
+		self.acctTypeList = [
+			'Admin',
+			'Coordinator',
+			'Booking Officer',
+			'Driver',
+			'Renter'
+		];
+
+		function submitUser () {
+			$uibModalInstance.close( self.userModel )
 		}
 
-		function getUserDetails () {
-			self.currUser = _.find( self.userList, { 'id' : parseInt( userId ) } );
+		function dismissModal () {
+			$uibModalInstance.dismiss();
 		}
 
 		function activate () {
@@ -17,7 +32,8 @@
 
 		activate();
 
-		self.closeModal = closeModal;
+		self.dismissModal = dismissModal;
+		self.submitUser   = submitUser;
 	}
 
 

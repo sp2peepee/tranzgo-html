@@ -77,7 +77,6 @@
 		];
 
 		function closeModal () {
-			console.log( 'CLOSE MODAL' );
 			$uibModalInstance.dismiss();
 		}
 

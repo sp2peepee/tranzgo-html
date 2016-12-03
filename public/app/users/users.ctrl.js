@@ -80,8 +80,25 @@
 			// TODO: Call delete user API here
 		}
 
+		function editUserModal ( userDetails ) {
+			var modalInstance = $uibModal.open( {
+				'templateUrl'  : '/app/components/user-edit-modal/user-edit-modal.html',
+				'controller'   : 'UserEditModalCtrl',
+				'controllerAs' : 'vm',
+				'resolve'      : {
+					'userDetails' : function () {
+						return userDetails;
+					}
+				}
+			} );
+
+			modalInstance.result.then( function ( res ) {
+				console.log( 'TODO: Call Edit User API' );
+				// TODO: Call Edit API
+			} );
+		}
+
 		function addUserModal ( userId ) {
-			console.log( 'OPEN ADD USER MODAL' );
 			var modalInstance = $uibModal.open( {
 				'templateUrl'  : '/app/components/user-add-modal/user-add-modal.html',
 				'controller'   : 'UserAddModalCtrl',
@@ -89,12 +106,12 @@
 			} );
 
 			modalInstance.result.then( function ( res ) {
+				console.log( 'TODO: Call Add User API' );
 				// TODO: Call Add API
 			} );
 		}
 
 		function viewDetailsModal ( userId ) {
-			console.log( 'OPEN VIEW DETAILS MODAL' );
 			var modalInstance = $uibModal.open( {
 				'templateUrl'  : '/app/components/user-detail-modal/user-detail-modal.html',
 				'controller'   : 'UserDetailModalCtrl',
@@ -109,7 +126,6 @@
 		}
 
 		function confirmDeleteModal ( userId ) {
-			console.log( 'OPEN DELETE MODAL' );
 			var modalInstance = $uibModal.open( {
 				'templateUrl'  : '/app/components/delete-confirmation-modal/delete-confirmation-modal.html',
 				'controller'   : 'DeleteConfirmationModalCtrl',
@@ -125,6 +141,7 @@
 			} );
 
 			modalInstance.result.then( function () {
+				console.log( 'TODO: Call Delete User API' );
 				// TODO: Call delete API
 			} );
 		}
@@ -162,7 +179,7 @@
 		// Activates the Users controller
 		function activate () {
 			console.log( 'Users controller activated' );
-			// Should call getUsers function here
+			// TODO: Should call getUsers function here
 			getUserList();
 		}
 
@@ -171,6 +188,7 @@
 		self.confirmDeleteModal = confirmDeleteModal;
 		self.viewDetailsModal   = viewDetailsModal;
 		self.addUserModal       = addUserModal;
+		self.editUserModal      = editUserModal;
 	}
 
 

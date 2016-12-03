@@ -17,6 +17,24 @@ app.use(bodyParser.json());
 
 // app.get('*', (req, res) =>  res.send('./public/index.html'))
 
+//cors and preflight filtering
+
+// app.all('*', function(req, res, next){
+// //preflight needs to return exact request-header
+// res.set('Access-Control-Allow-Headers', req.headers['access-control-request-headers']); 
+// if ('OPTIONS' == req.method) {
+// 	return res.send(204);
+// }
+// next();
+// });
+
+// app.all('*', function(req, res, next) {
+//        res.header("Access-Control-Allow-Origin", "*");
+//        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//        res.header('Access-Control-Allow-Headers', 'Content-Typeyayaya');
+//        next();
+// });
+
 // listen (start app with node server.js)
 app.listen(9000);
 console.log("App listening on port 9000");

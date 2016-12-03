@@ -40,7 +40,7 @@
 						<span class="col-md-1" ng-bind="vm.userStatusList[ user.account_status ].userStatus" ng-class="user.account_status ? 'user-active' : 'user-inactive'"></span>
 						<span class="col-md-2" ng-bind="user.updated_at"></span>
 						<div class="col-md-2 user-actions">
-							<a class="view-link" href="">Edit</a> | <span class="view-link" ng-click="vm.confirmDeleteModal( user.id )">Delete</span>
+							<span class="view-link" ng-click="vm.editUserModal( user )">Edit</span> | <span class="view-link" ng-click="vm.confirmDeleteModal( user.id )">Delete</span>
 						</div>
 						<span class="clearfix"></span>
 					</div>
